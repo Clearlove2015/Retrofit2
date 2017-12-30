@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
         List<MultipartBody.Part> parts = new ArrayList<>(files.size());
         for (File file : files) {
             RequestBody requestBody = RequestBody.create(MediaType.parse("image/png"), file);
+            // MultipartBody.Part和后端约定好Key，这里的partName是用mFile
             MultipartBody.Part part = MultipartBody.Part.createFormData("mFile", file.getName(), requestBody);
             parts.add(part);
         }
